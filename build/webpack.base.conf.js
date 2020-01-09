@@ -10,7 +10,7 @@ module.exports = {
         filename: '[name].js'
     },
     resolve: {
-        extensions: ['*', '.js', '.json'],
+        extensions: ['*', '.js', '.less', '.json'],
         alias: {
             '@': path.resolve(__dirname, '../src')
         }
@@ -38,17 +38,13 @@ module.exports = {
                 use: ['css-loader']
             },
             {
-                test: /\.scss$/,
+                test: /\.less$/,
                 use: [
-                    'css-loader',
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            data: `$color: red;`
-                        }
-                    }
+                  'css-loader',
+                  'postcss-loader',
+                  'less-loader'
                 ]
-            }
+              }
         ]
     },
     plugins: [
