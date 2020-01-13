@@ -7,7 +7,8 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: '[name].js'
+        filename: '[name].js',
+        publicPath: '/'
     },
     resolve: {
         extensions: ['*', '.js', '.less', '.json'],
@@ -24,14 +25,18 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    'file-loader'
-                ]
+                loader: 'url-loader',
+                options: {
+                  limit: 100000,
+                  name: 'fonts/[name].[hash:7].[ext]'
+                }
             }, {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [
-                    'file-loader'
-                ]
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                  limit: 100000,
+                  name: 'fonts/[name].[hash:7].[ext]'
+                }
             },
             {
                 test: /\.html$/,

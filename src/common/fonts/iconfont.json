@@ -1,0 +1,44 @@
+{
+  "id": "1459739",
+  "name": "luxixi-site-admin",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11284",
+      "name": "icon_comments",
+      "font_class": "iconcomments",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "291196",
+      "name": " delete",
+      "font_class": "delete",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "3781992",
+      "name": "icon-tagso",
+      "font_class": "icon-tagso",
+      "unicode": "e939",
+      "unicode_decimal": 59705
+    },
+    {
+      "icon_id": "6899338",
+      "name": "icon_drafts",
+      "font_class": "icon_drafts",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "8616415",
+      "name": "icon-article",
+      "font_class": "icon-article",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    }
+  ]
+}

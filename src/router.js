@@ -9,9 +9,18 @@ const { delay, timeout } = config;
 
 const routeMap = [
   {
-    path: `/${config.routePrefix}`,
-    component: './containers/home/Home',
+    path: `/`,
+    component: './containers/home',
     exact: true
+  },
+  {
+    path: `/article`,
+    component: './containers/article',
+    exact: true
+  },
+  {
+    path: `/article/edit`,
+    component: './containers/article/editArticle',
   },
 ];
 

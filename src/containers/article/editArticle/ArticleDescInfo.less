@@ -1,0 +1,93 @@
+.desc-info-wrap {
+  background-color: #ffffff;
+
+  .ant-upload {
+    width: 100%;
+  }
+
+  .upload-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #ddd;
+    height: 150px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+    cursor: pointer;
+
+    &:hover {
+      border-color: #1890ff;
+    }
+  }
+
+  .img-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+
+      .delete-img {
+        display: flex;
+        background: rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    .delete-img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+
+      .anticon {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .article-input {
+    margin: 10px 0;
+  }
+
+  .article-desc {
+    resize: none;
+  }
+
+  .article-input, .article-desc {
+
+    &::placeholder {
+      font-size: 12px;
+    }
+  }
+
+  .button-wrap {
+    margin-top: 8px;
+    flex-direction: row;
+
+    .ant-btn {
+      flex: 1;
+
+      &:not(:first-child) {
+        margin-left: 8px;
+      }
+    }
+  }
+
+}

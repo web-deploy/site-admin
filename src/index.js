@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'mobx-react';
-import store from './store';
+import './common/fonts/iconfont';
+import './common/fonts/iconfont.css';
+import { StoreProvider } from './store';
 import router from './router';
 
 import './common/common.less';
 
 ReactDOM.render(
-	<Provider {...store}>
+	<StoreProvider>
 		{ router }
-	</Provider>,
+	</StoreProvider>,
 	document.getElementById('app')
 )
