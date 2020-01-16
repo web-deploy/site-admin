@@ -4,6 +4,7 @@ import {useLocalStore} from 'mobx-react-lite';
 
 const storeContext = React.createContext(null);
 
+// eslint-disable-next-line react/prop-types
 export const StoreProvider = ({children}) => {
   const store = useLocalStore(createStore);
   return (
@@ -28,7 +29,6 @@ const getStoreByPath = (paths, store) => {
 
 export const useRegisterStore = (paths, rowStore) => {
   const store = useStore();
-
   React.useMemo(() => {
     const parent = getStoreByPath(paths.slice(0, -1), store);
     const last = paths[paths.length - 1];

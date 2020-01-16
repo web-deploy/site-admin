@@ -13,6 +13,8 @@ class Article {
     description: '',
   };
 
+  @observable articles = [];
+
   //
   @action.bound setArticleInfo(key, value) {
     this.articleInfo = {
@@ -57,7 +59,15 @@ class Article {
 
   @action.bound async getArticles() {
     const result = await request.get('/article');
-    console.log(result);
+    this.articles = result;
+  }
+
+  @action.bound async deleteArticle(articleId, index) {
+    await request.delete(`/article/${articleId}`);
+
+    this.articles.splice(index, 1);
+
+    message.success('删除成功', 2);
   }
 }
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const baseUrl = 'http://localhost:7001/api/v1';
+export const baseUrl = 'http://localhost:7001/api/v1/admin';
 
 // axios的实例及拦截器配置
 const request = axios.create({

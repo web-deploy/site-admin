@@ -8,7 +8,8 @@ const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
 const menuMap = {
-  articleList: '/article',
+  home: '/',
+  articleList: '/article/list',
   addArticle: '/article/edit'
 }
 
@@ -24,8 +25,11 @@ const App = (props) => {
     if (menuMap[e.key]) {
       // eslint-disable-next-line react/prop-types
       props.history.push(menuMap[e.key])
+      localStorage.setItem('active_key', e.key);
     }
   }
+
+  const defaultKey = localStorage.getItem('active_key') || 'home';
 
   return (
     <div className="app-root">
@@ -36,8 +40,8 @@ const App = (props) => {
             <div className="logo-wrap">
               <div className="logo">鲁 西 西</div>
             </div>
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-              <Menu.Item key="1">
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={[defaultKey]}>
+              <Menu.Item key="home" onClick={onClickMenuItem}>
                 <Icon type="pie-chart" />
                 <span>工作台</span>
               </Menu.Item>
