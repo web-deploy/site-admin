@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Layout, Col, Upload, Input, message, Button } from 'antd';
 import Icon from '../../../components/Icon';
@@ -9,13 +9,18 @@ import './ArticleDescInfo.less';
 const { TextArea } = Input;
 
 
-const ArticleDescInfo = () => {
-
+const ArticleDescInfo = (props) => {
   const [loading, setLoading] = useState(false);
   const editStore = useArticleStore();
+  // eslint-disable-next-line react/prop-types
+  const { id } = props.match.params;
 
-  const { getToken, token, articleInfo, setArticleInfo, getImageUrl, save, publish } = editStore;
-  const { poster } = articleInfo;
+  const { getToken, token, articleInfo, setArticleInfo, getImageUrl, save, publish, getArticleDetail } = editStore;
+  const { title, description, poster } = articleInfo;
+
+  useEffect(() => {
+    getArticleDetail(id);
+  }, [getArticleDetail])
 
   const deleteImg = () => {
     setArticleInfo('poster', '');
@@ -95,18 +100,29 @@ const ArticleDescInfo = () => {
         }
         <Input
           className="article-input"
+          value={title}
           placeholder="请输入文章标题"
           onChange={(e) => { setArticleInfo('title', e.target.value) }}
         />
         <TextArea
           className="article-desc"
           rows={5}
+          value={description}
           placeholder="请输入文章描述"
           onChange={(e) => { setArticleInfo('description', e.target.value) }}
         />
         <Layout className="button-wrap">
-          <Button type="primary" onClick={save}>保存</Button>
-          <Button type="primary" onClick={publish}>发布</Button>
+          {
+            !id &&
+            <Fragment>
+              <Button type="primary" onClick={save}>保存</Button>
+              <Button type="primary" onClick={publish}>发布</Button>
+            </Fragment>
+          }
+          {
+            id &&
+            <Button type="primary" onClick={save}>更新</Button>
+          }
         </Layout>
       </Layout>
     </Col>

@@ -1,18 +1,18 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Layout } from 'antd';
 import ReactEditor from 'for-editor'
 
 
 // eslint-disable-next-line react/prop-types
-const Editor = ({ onChange }) => {
+const Editor = ({ onChange, value }) => {
 
-  const [value, setValue] = useState('');
+  const [val, setVal] = useState('');
   const editorRef = useRef(null);
 
-  const handleChange = (value) => {
-    setValue(value);
+  const handleChange = (v) => {
+    setVal(v);
     if (onChange && typeof onChange === 'function') {
-      onChange(value);
+      onChange(v);
     }
   }
 
@@ -21,11 +21,15 @@ const Editor = ({ onChange }) => {
     console.log(file)
   }
 
+  useEffect(() => {
+    setVal(value);
+  }, [value])
+
   return (
     <Layout>
       <ReactEditor
         ref={editorRef}
-        value={value}
+        value={val}
         onChange={handleChange}
         addImg={uploadFile}
       />

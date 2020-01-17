@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter, Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { Table, Tag, Popconfirm } from 'antd';
 import { useArticleStore } from '../../../utils';
@@ -74,7 +75,7 @@ const getColumns = () => {
             >
               <a>删除</a>
             </Popconfirm>
-            <a>编辑</a>
+            <Link to={`/article/edit/${id}`}>编辑</Link>
             {
               status === 0 &&
               <a>保存</a>

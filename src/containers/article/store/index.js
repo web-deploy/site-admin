@@ -69,6 +69,18 @@ class Article {
 
     message.success('删除成功', 2);
   }
+
+  @action.bound async getArticleDetail(articleId) {
+    const { title, content, description, poster } = await request.get(`/article/${articleId}`);
+    this.articleInfo = {
+      ...this.articleInfo,
+      title,
+      content,
+      description,
+      poster
+    }
+
+  }
 }
 
 export default new Article();

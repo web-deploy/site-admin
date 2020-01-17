@@ -25,7 +25,12 @@ const routeMap = [
         exact: true,
       },
       {
-        path: '/article/edit/:articleId',
+        path: '/article/edit',
+        component: './containers/article/edit',
+        exact: true,
+      },
+      {
+        path: '/article/edit/:id',
         component: './containers/article/edit',
         exact: true,
       },
