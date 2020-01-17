@@ -79,6 +79,9 @@ class Article {
       description,
       poster
     }
+  }
+
+  @action.bound async updateArticle() {
 
   }
 }
